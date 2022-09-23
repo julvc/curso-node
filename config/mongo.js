@@ -4,7 +4,7 @@ const dbConnect = () => {
     // const DB_URI = process.env.DB_URI;
     const DB_URI = 'mongodb://localhost:27017/db_usuarios';
     mongoose.connect(DB_URI, {
-        useNewUrlParse: true,
+        useNewUrlParser: true,
         useUnifiedTopology: true,
     }, (err,res) =>{
         if (!err) {
