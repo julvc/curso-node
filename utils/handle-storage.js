@@ -14,10 +14,10 @@ const storage = multer.diskStorage({
         const ext = file.originalname.split(".").pop();
         //* ['micv','pdf'] la extensión siempre va a ser el ultimo elemento del array. El objetivo es crear un archivo con nombre aleatorio, de manera que nunca se sobreescriba
         const filename = `file-${Date.now()}.${ext}`;
-        cb(null, this.filename)
+        cb(null, filename)
     },
 });
 
-const uploadMiddleWare = multer({storage});
+const uploadMiddleware = multer({storage});
 
-module.exports = uploadMiddleWare;
+module.exports = uploadMiddleware;
