@@ -14,9 +14,7 @@ fs.readdirSync(PATH_ROUTES).filter( (file)=> {
     console.log(file); // index.js y users.js
     const name = removeExtension(file);
     if (name != 'index') {
-        router.use(`/${name}`, (req, res) => {
-            res.send({aviso: 'la ruta dinamica se creo'})
-        });
+        router.use(`/${name}`, require(`./${file}`));
     }
 })
 
