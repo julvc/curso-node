@@ -1,13 +1,14 @@
 const { check, validationResult } = require("express-validator");
+const validateResults = require("../utils/handle-validator");
 
 const validatorCreateUser = [
     check("name").exists().notEmpty(),
     check("email").exists().notEmpty().isEmail(),
-    check("telefono").exists().notEmpty(),
+    check("telefono").exists().notEmpty().isNumeric(),
     check("empresa").exists().notEmpty(),
     (req, res,next) => {
         //* handle
-        validationResult(req, res,next);
+        validateResults(req, res,next);
     }
 ];
 

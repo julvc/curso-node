@@ -21,3 +21,4 @@ const storage = multer.diskStorage({
 const uploadMiddleware = multer({storage});
 
 module.exports = uploadMiddleware;
+//* En este archivo podriamos una conexión a servicios como S3 de amazon.

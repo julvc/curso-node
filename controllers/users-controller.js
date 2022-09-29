@@ -1,3 +1,4 @@
+const { matchedData } = require("express-validator");
 const { usersModel} = require('../models');
 const { handleHttpError } = require('../utils/handle-error');
 //* El controlador se encarga de la logica de nuestr aaplicacion (API)
@@ -15,8 +16,8 @@ try {
     //res "Response" la respuesta
 
     //const body = req.body;
-    const { body } = req;
-    console.log("El body: " + body);
+    const body = matchedData(req);
+    console.log({body});
 
     const data = await usersModel.create(body);
     //res.send({data: data});

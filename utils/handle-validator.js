@@ -1,13 +1,13 @@
 const { validationResult } = require("express-validator");
 
-const validationResult = (req, res, next) => {
-    try {
-        validationResult(req).throw();//* Sino cumple la validación explota
-        return next();//* vaya hacia el controlador paso las validaciones
-    } catch (error) {
-        res.status(403);
-        res.send({errors: error.array()});
-    }
-}
+const validateResults = (req, res, next) => {
+  try {
+    validationResult(req).throw(); // * Sino cumple la validación sea creashea (revienta)
+    return next(); //* vaya hacia el controlador paso la validaciones
+  } catch (error) {
+    res.status(403);
+    res.send({ errors: error.array()});
+  }
+};
 
-module.exports = validationResult;
+module.exports = validateResults;
